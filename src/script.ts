@@ -1,1 +1,2 @@
-console.log('hello world!')
+let age = 55;
+const fullname = 'amirreza';
