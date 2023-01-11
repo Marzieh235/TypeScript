@@ -1,21 +1,9 @@
-interface MyLabel {
-    size: number
-    label: string
-}
-
-function printLabel(labledObj : MyLabel) {
-    console.log(labledObj.label);
+interface SearchFunc {
+    (source :  string , subString : string) : boolean
 }
 
 
-function labelX(labledObj : MyLabel) {
-    console.log(labledObj.size)
+let mySearch : SearchFunc = (source : string , subString : string) => {
+    let result = source.search(subString);
+    return result > -1;
 }
-
-
-let myObj = { size : 10 , label : "Size 10" , xx : 123}
-printLabel(myObj);
-
-
-let myObj2 = {size : 20 , label : "Size 20"}
-labelX(myObj2)
