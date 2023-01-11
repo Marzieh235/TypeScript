@@ -4,5 +4,8 @@ let virtual : number = 5
 
 
 
-let list = [1,2,3]
+let list: any = [1,true,3]
 list = []
+
+
+let tuple :[string , number] = ['amir' , 0]
