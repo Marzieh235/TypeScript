@@ -1,22 +1,21 @@
-class Car {
-    private static instance : Car
+interface MyLabel {
+    size: number
+    label: string
+}
 
-    private constructor() {}
-
-    public static getInstance() : Car {
-        if(! Car.instance)
-            Car.instance = new Car()
-            
-        return Car.instance;
-    }
-
-
-    // methods and properties
+function printLabel(labledObj : MyLabel) {
+    console.log(labledObj.label);
 }
 
 
-let car1 = Car.getInstance()
-let car2 = Car.getInstance();
+function labelX(labledObj : MyLabel) {
+    console.log(labledObj.size)
+}
 
 
-console.log(car1 === car2)
+let myObj = { size : 10 , label : "Size 10" , xx : 123}
+printLabel(myObj);
+
+
+let myObj2 = {size : 20 , label : "Size 20"}
+labelX(myObj2)

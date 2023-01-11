@@ -1,12 +1,11 @@
 "use strict";
-class Car {
-    constructor() { }
-    static getInstance() {
-        if (!Car.instance)
-            Car.instance = new Car();
-        return Car.instance;
-    }
+function printLabel(labledObj) {
+    console.log(labledObj.label);
 }
-let car1 = Car.getInstance();
-let car2 = Car.getInstance();
-console.log(car1 === car2);
+function labelX(labledObj) {
+    console.log(labledObj.size);
+}
+let myObj = { size: 10, label: "Size 10", xx: 123 };
+printLabel(myObj);
+let myObj2 = { size: 20, label: "Size 20" };
+labelX(myObj2);
