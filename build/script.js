@@ -6,16 +6,14 @@ class Car {
         this.model = model;
         this.year = year;
     }
-    sayHello() {
-        console.log('hello everyOne');
+    set setmodel(themodel) {
+        this.model = themodel;
+    }
+    get getmodel() {
+        return (this.model);
     }
 }
-class Irankhodro extends Car {
-    run() {
-        return (this.sayHello);
-    }
-}
-let test = new Irankhodro('405', 1400);
-let car1 = new Car('206', 1380);
-console.log(car1.year);
-console.log(test.run());
+let car1 = new Car('410', 2012);
+car1.setmodel = '206';
+console.log(car1);
+console.log(car1.getmodel);

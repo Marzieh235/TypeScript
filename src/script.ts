@@ -1,25 +1,25 @@
 class Car {
-    constructor(private model: string, public year: number) {
+    constructor(protected model: string, public year: number) {
         this.model = model
         this.year = year
     }
 
-
-    protected sayHello() {
-        console.log('hello everyOne')
-    }
-
-}
-
-class Irankhodro extends Car {
-    run() {
-       return(this.sayHello)
-    }
+set setmodel(themodel : string){
+    this.model = themodel
 }
 
 
-let test = new Irankhodro('405' ,1400)
-let car1 = new Car('206', 1380)
-console.log(car1.year)
-console.log(test.run())
+get getmodel(){
+    return ( this.model)
+}
 
+}
+
+
+
+
+
+let car1 = new Car('410',2012)
+car1.setmodel = '206'
+console.log(car1)
+console.log(car1.getmodel)
