@@ -1,25 +1,27 @@
-class Car {
+abstract class Car {
     constructor(protected model: string, public year: number) {
         this.model = model
         this.year = year
     }
 
-set setmodel(themodel : string){
-    this.model = themodel
+
+    abstract bar(): any;
+    foo () :void {
+        console.log (this.bar())
+    }
 }
 
+    class text extends Car {
+        bar() {
+         return ('hi')
 
-get getmodel(){
-    return ( this.model)
-}
+        }
 
-}
-
-
-
+    }
 
 
-let car1 = new Car('410',2012)
-car1.setmodel = '206'
-console.log(car1)
-console.log(car1.getmodel)
+
+
+
+let car1 = new text('410', 2012)
+console.log(car1.bar())
