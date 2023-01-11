@@ -1,28 +1,22 @@
- class Car {
-    static model : string
-    readonly year : number
-    constructor(model : string, year : number) {
-        Car.model = model
-        this.year = year
+class Car {
+    private static instance : Car
+
+    private constructor() {}
+
+    public static getInstance() : Car {
+        if(! Car.instance)
+            Car.instance = new Car()
+            
+        return Car.instance;
     }
 
 
-//     abstract bar(): any;
-//     foo () :void {
-//         console.log (this.bar())
-//     }
+    // methods and properties
 }
 
-    // class text extends Car {
-    //     bar() {
-    //      return ('hi')
 
-    //     }
-
-    // }
+let car1 = Car.getInstance()
+let car2 = Car.getInstance();
 
 
-let car1 = new Car('410', 2012)
-console.log(Car.model)
-console.log(car1.year)
-// console.log(car1.bar())
+console.log(car1 === car2)

@@ -1,16 +1,12 @@
 "use strict";
 class Car {
-    constructor(model, year) {
-        Car.model = model;
-        this.year = year;
+    constructor() { }
+    static getInstance() {
+        if (!Car.instance)
+            Car.instance = new Car();
+        return Car.instance;
     }
 }
-// class text extends Car {
-//     bar() {
-//      return ('hi')
-//     }
-// }
-let car1 = new Car('410', 2012);
-console.log(Car.model);
-console.log(car1.year);
-// console.log(car1.bar())
+let car1 = Car.getInstance();
+let car2 = Car.getInstance();
+console.log(car1 === car2);
