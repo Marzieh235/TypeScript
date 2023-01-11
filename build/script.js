@@ -1,15 +1,11 @@
 "use strict";
-let fullname = 'amirreza';
-fullname = getstring();
-function getstring() {
-    return null;
-}
-function log(message) {
-    console.log(message);
-}
-log('hello my love');
-// let num: boolean = true;
-// let virtual : number = 5
-// let list: any = [1,true,3]
-// list = []
-// let tuple :[string , number] = ['amir' , 0]
+var test;
+(function (test) {
+    test[test["up"] = 0] = "up";
+    test[test["down"] = 1] = "down";
+    test[test["left"] = 5] = "left";
+    test[test["right"] = 6] = "right";
+})(test || (test = {}));
+console.log(test);
+let T = test.left;
+console.log(T);

@@ -1,27 +1,14 @@
-let fullname: string | null = 'amirreza';
-
-fullname = getstring()
-
-
-function getstring(){
-    return null ;
+enum test {
+    up,
+    down,
+    left = 5,
+    right,
 }
 
 
-function log (message :string ): void{
-    console.log(message)
-}
 
-log('hello my love')
-
-// let num: boolean = true;
-// let virtual : number = 5
+console.log(test);
 
 
-
-
-// let list: any = [1,true,3]
-// list = []
-
-
-// let tuple :[string , number] = ['amir' , 0]
+let T : test = test.left ;
+console.log(T) ;
