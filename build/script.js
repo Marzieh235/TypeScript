@@ -2,8 +2,8 @@
 function logData(data) {
     return data;
 }
-console.log(logData(['1', 'asdasd']));
-function text(data) {
+let myLogFunc;
+myLogFunc = function (data) {
     return data;
-}
-console.log(text([1, 24]));
+};
+console.log(myLogFunc);

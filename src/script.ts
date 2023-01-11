@@ -1,12 +1,17 @@
-function logData<T>(data : T[]) : T[] {
+function logData<T>(data : T) : T {
     return data;
 }
 
-
-console.log(logData<string>(['1' , 'asdasd']));
-
-function text<A>(data : A[]) : A[] {
-    return data;
+interface myLogFuncInterface<T> {
+    (data : T) : T
 }
 
-console.log(text<number>([1 ,24]))
+let myLogFunc : myLogFuncInterface<number> ;
+myLogFunc = function(data : number ) : number {
+    return data
+}
+
+
+
+
+console.log(myLogFunc)
