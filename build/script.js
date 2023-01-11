@@ -1,15 +1,9 @@
 "use strict";
-let person = {
-    name: 'amirreza',
-    age: (num) => {
-        return `age: ${num}`;
+class Car {
+    constructor(model, year) {
+        this.model = model;
+        this.year = year;
     }
-};
-let person2 = {
-    name: 'marzieh',
-    age: (num) => {
-        return `age: ${num}`;
-    }
-};
-console.log(person);
-console.log(person2);
+}
+let car1 = new Car('206', 1380);
+console.log(car1);
