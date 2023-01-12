@@ -1,0 +1,21 @@
+
+{
+    "name": "my-code",
+    "version": "1.0.0",
+    "description": "",
+    "main": "webpack.config.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Marzieh235/TypeScript.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Marzieh235/TypeScript/issues"
+    },
+    "homepage": "https://github.com/Marzieh235/TypeScript#readme"
+  }
+  
