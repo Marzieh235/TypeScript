@@ -1,30 +1,22 @@
-
-
-function authFactory(value : boolean) {
-    return function auth<T extends { new(...args : any[])}>(constractor : T) {
-        // process
-        return class extends constractor {
-            auth = value
-        }
-    }
-}
-
-function changeable(value : boolean) {
-    return function(target :any , propertyKey : string , descriptor : PropertyDescriptor ) {
-        descriptor.writable = false;
-    }
-}
-
-
-@authFactory(false)
-class User {
-    private name = 'amir'
-
-    @changeable(false)
-    getName() {
-        return this.name;
-    }
-}
-
-let user = new User();
-console.log(user.getName())
+function Emoji() {
+    return function (target: any, key: string | symbol) {
+      let val = target[key];
+   
+      Object.defineProperty(target, key, {
+        get: () => val,
+        set: (newVal) => {
+          val = `🍥 ${newVal} 🍥`;
+        },
+        configurable: true,
+        enumerable: true,
+      });
+    };
+  }
+   
+  class IceCream {
+    @Emoji()
+    flavor = "naruto";
+  }
+   
+  let IC1 = new IceCream();
+  console.log(IC1.flavor);

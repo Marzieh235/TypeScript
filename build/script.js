@@ -5,35 +5,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-function authFactory(value) {
-    return function auth(constractor) {
-        // process
-        return class extends constractor {
-            constructor() {
-                super(...arguments);
-                this.auth = value;
-            }
-        };
+function Emoji() {
+    return function (target, key) {
+        let val = target[key];
+        Object.defineProperty(target, key, {
+            get: () => val,
+            set: (newVal) => {
+                val = `🍥 ${newVal} 🍥`;
+            },
+            configurable: true,
+            enumerable: true,
+        });
     };
 }
-function changeable(value) {
-    return function (target, propertyKey, descriptor) {
-        descriptor.writable = false;
-    };
-}
-let User = class User {
+class IceCream {
     constructor() {
-        this.name = 'amir';
+        this.flavor = "naruto";
     }
-    getName() {
-        return this.name;
-    }
-};
+}
 __decorate([
-    changeable(false)
-], User.prototype, "getName", null);
-User = __decorate([
-    authFactory(false)
-], User);
-let user = new User();
-console.log(user.getName());
+    Emoji()
+], IceCream.prototype, "flavor", void 0);
+let IC1 = new IceCream();
+console.log(IC1.flavor);
