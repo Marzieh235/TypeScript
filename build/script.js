@@ -5,39 +5,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-// function auth<T extends { new(...args : any[])}>(constractor : T) {
-//     // process
-//     console.log(constractor)
-//     return class extends constractor {
-//         auth = false
-//     }
-// }
-function fisrt(constractor) {
-    // process
-    return class extends constractor {
-        constructor() {
-            super(...arguments);
-            this.property = 'first property';
-        }
+function authFactory(value) {
+    return function auth(constractor) {
+        // process
+        return class extends constractor {
+            constructor() {
+                super(...arguments);
+                this.auth = value;
+            }
+        };
     };
 }
-function second(constractor) {
-    // process
-    return class extends constractor {
-        constructor() {
-            super(...arguments);
-            this.property = 'second property';
-        }
+function changeable(value) {
+    return function (target, propertyKey, descriptor) {
+        descriptor.writable = false;
     };
 }
 let User = class User {
     constructor() {
-        this.name = 'hesam';
+        this.name = 'amir';
+    }
+    getName() {
+        return this.name;
     }
 };
+__decorate([
+    changeable(false)
+], User.prototype, "getName", null);
 User = __decorate([
-    second,
-    fisrt
+    authFactory(false)
 ], User);
 let user = new User();
-console.log(user);
+console.log(user.getName());

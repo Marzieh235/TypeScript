@@ -1,29 +1,30 @@
-// function auth<T extends { new(...args : any[])}>(constractor : T) {
-//     // process
-//     console.log(constractor)
-//     return class extends constractor {
-//         auth = false
-//     }
-// }
-function fisrt<T extends {new(...args : any[])}>(constractor : T) {
-    // process
-    return class extends constractor {
-        property = 'first property'
+
+
+function authFactory(value : boolean) {
+    return function auth<T extends { new(...args : any[])}>(constractor : T) {
+        // process
+        return class extends constractor {
+            auth = value
+        }
     }
 }
 
-function second<T extends { new(...args : any[])}>(constractor : T) {
-    // process
-    return class extends constractor {
-        property = 'second property'
+function changeable(value : boolean) {
+    return function(target :any , propertyKey : string , descriptor : PropertyDescriptor ) {
+        descriptor.writable = false;
     }
 }
 
-@second
-@fisrt
+
+@authFactory(false)
 class User {
-    name = 'hesam'
+    private name = 'amir'
+
+    @changeable(false)
+    getName() {
+        return this.name;
+    }
 }
 
-let user = new User() ;
-console.log(user)
+let user = new User();
+console.log(user.getName())
