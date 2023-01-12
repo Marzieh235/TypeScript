@@ -1,25 +1,29 @@
-class MyArray<T extends number | string,U> {
-    constructor(public data : T[] , private data2 : U[]) {}
-
-    addItem(item : T) {
-        this.data.push(item)
-    }
-
-    getItem(index : number) {
-        return this.data[index]
+// function auth<T extends { new(...args : any[])}>(constractor : T) {
+//     // process
+//     console.log(constractor)
+//     return class extends constractor {
+//         auth = false
+//     }
+// }
+function fisrt<T extends {new(...args : any[])}>(constractor : T) {
+    // process
+    return class extends constractor {
+        property = 'first property'
     }
 }
 
-
-let list = new MyArray<string , boolean>(['iitem1 ', 'item2'] , [false ,true])
-list.addItem('4')
-console.log(list.getItem(0))
-
-
-
-function logParameters<T extends number | string,U extends boolean | object>(x : T , y : U) : void {
-    console.log(x , y)
+function second<T extends { new(...args : any[])}>(constractor : T) {
+    // process
+    return class extends constractor {
+        property = 'second property'
+    }
 }
 
+@second
+@fisrt
+class User {
+    name = 'hesam'
+}
 
-logParameters<string , boolean>('2' , true)
+let user = new User() ;
+console.log(user)
