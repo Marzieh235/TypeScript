@@ -1,3 +1,5 @@
-import logger from './logger'
+/// <reference path="log-error.ts" />
+/// <reference path="log-success.ts" />
 
-logger.success('Hello Roocket')
+
+logSuccess.log('hello everyOne')
